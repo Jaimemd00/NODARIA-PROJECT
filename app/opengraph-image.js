@@ -1,96 +1,44 @@
-import { ImageResponse } from 'next/og';
-import { SITE_URL } from '@/lib/seo';
-
 export const alt = 'Nodaria — Diseño web y automatización con IA';
 export const size = { width: 1200, height: 630 };
-export const contentType = 'image/png';
+export const contentType = 'image/svg+xml';
 
 /**
  * Imagen que se ve al compartir el enlace en WhatsApp, LinkedIn, X, Slack...
- * Se genera en el servidor, así que no hay que mantener un PNG a mano.
+ * Se genera como SVG para evitar errores de compilación en producción.
  */
 export default async function OgImage() {
-  const url = SITE_URL;
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+      <rect width="1200" height="630" fill="#04081c" />
+      <rect x="0" y="0" width="1200" height="630" fill="url(#bg)" />
+      <circle cx="980" cy="470" r="220" fill="#35d6f5" opacity="0.22" />
+      <circle cx="1040" cy="150" r="120" fill="#6c5ce7" opacity="0.3" />
+      <text x="90" y="220" fill="#ffc53d" font-size="36" font-family="Arial, sans-serif" letter-spacing="6">
+        NODARIA
+      </text>
+      <text x="90" y="330" fill="#ffffff" font-size="70" font-family="Arial, sans-serif" font-weight="700">
+        Vive la Metamorfosis Digital
+      </text>
+      <text x="90" y="395" fill="#93a0c4" font-size="34" font-family="Arial, sans-serif">
+        Diseño web, desarrollo y automatización con n8n y Zapier
+      </text>
+      <text x="90" y="465" fill="#63719a" font-size="26" font-family="Arial, sans-serif">
+        Écija · Sevilla · Toda España
+      </text>
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0b1638" />
+          <stop offset="55%" stop-color="#071026" />
+          <stop offset="100%" stop-color="#04081c" />
+        </linearGradient>
+      </defs>
+    </svg>
+  `;
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '80px',
-          background: 'linear-gradient(135deg, #04081c 0%, #0b1638 55%, #071026 100%)',
-          color: '#eaf0ff',
-          fontFamily: 'sans-serif',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 18,
-            fontSize: 30,
-            letterSpacing: 6,
-            textTransform: 'uppercase',
-            color: '#ffc53d',
-          }}
-        >
-          Nodaria
-        </div>
-
-        <div
-          style={{
-            display: 'flex',
-            fontSize: 82,
-            fontWeight: 700,
-            lineHeight: 1.05,
-            marginTop: 28,
-            maxWidth: 940,
-          }}
-        >
-          Vive la Metamorfosis Digital
-        </div>
-
-        <div
-          style={{
-            display: 'flex',
-            fontSize: 34,
-            color: '#93a0c4',
-            marginTop: 26,
-            maxWidth: 900,
-          }}
-        >
-          Diseño web, desarrollo y automatización con n8n y Zapier
-        </div>
-
-        <div
-          style={{
-            display: 'flex',
-            marginTop: 48,
-            fontSize: 26,
-            color: '#63719a',
-          }}
-        >
-          Écija · Sevilla · Toda España
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            right: -160,
-            bottom: -160,
-            width: 520,
-            height: 520,
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, #6c5ce7, #2f7bff 55%, #35d6f5)',
-            opacity: 0.35,
-          }}
-        />
-      </div>
-    ),
-    size
-  );
+  return new Response(svg, {
+    headers: {
+      'content-type': 'image/svg+xml',
+      'cache-control': 'public, max-age=31536000, immutable',
+    },
+  });
 }
