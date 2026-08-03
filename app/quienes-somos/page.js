@@ -38,9 +38,9 @@ export default function QuienesSomosPage() {
 
             <Reveal delay={140}>
               <p className="lead">
-                Somos un equipo de diseño web, desarrollo y automatización en Écija, Sevilla. Creamos
-                soluciones digitales reales para negocios que quieren vender más, trabajar mejor y
-                ganar tiempo con tecnología sencilla y efectiva.
+                Somos ingenieros y especialistas en IA en Écija, Sevilla. Nos especializamos en
+                desarrollo de software, machine learning y automatizaciones empresariales que
+                transforman procesos críticos y generan impacto técnico real.
               </p>
             </Reveal>
           </div>

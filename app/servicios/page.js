@@ -45,9 +45,9 @@ export default function ServiciosPage() {
             <span className="eyebrow">Catálogo</span>
             <h2>Lo que hacemos, sin relleno</h2>
             <p>
-              Cada servicio funciona por separado, pero rinde mucho más combinado. Te ayudamos a
-              elegir entre diseño web, SEO, automatización y desarrollo para conseguir mejores
-              resultados en tu negocio, desde Écija hasta toda España.
+              Desarrollo de software, machine learning, automatizaciones inteligentes y consultoría
+              tecnológica. Cada proyecto es custom y pensado para resolver problemas técnicos
+              complejos en tu infraestructura empresarial.
             </p>
           </Reveal>
 

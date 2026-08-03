@@ -33,8 +33,8 @@ export default function ContactoPage() {
               <span className="eyebrow">Conoce nuestra ofi</span>
               <h2 className="h2">Convertimos tu visión en una experiencia digital única</h2>
               <p style={{ color: 'var(--muted)', margin: '18px 0 30px', maxWidth: '46ch' }}>
-                Nos sumergimos en tu proyecto para entender exactamente lo que necesitas y te
-                orientamos con una web profesional, SEO y automatizaciones pensadas para crecer.
+                Evaluamos tu infraestructura técnica y necesidades de negocio. Proponemos soluciones
+                en desarrollo de software, IA y automatización adaptadas a tu escala.
               </p>
 
               <div className="contact-block">

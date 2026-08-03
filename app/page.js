@@ -34,7 +34,7 @@ export default function HomePage() {
         ]}
       />
 
-      <Hero title={paginas.home.h1} eyebrow="Conecta el diseño. Automatiza el futuro" />
+      <Hero title={paginas.home.h1} eyebrow="Desarrollo, IA y Automatización Inteligente" />
 
       <Waves id="h" />
 
@@ -44,15 +44,14 @@ export default function HomePage() {
         <WaveField id="benefits" />
         <div className="shell">
           <Reveal className="section-head">
-            <span className="eyebrow">Automatización</span>
+            <span className="eyebrow">Automatización Inteligente</span>
             <h2>
-              Menos tareas manuales, <span className="hl">más tiempo para crecer</span>
+              Procesos <span className="hl">automatizados con IA</span> y lógica empresarial
             </h2>
             <p>
-              Orquestamos tus herramientas digitales con <strong>n8n</strong> y{' '}
-              <strong>Zapier</strong> para automatizar procesos en empresas de Sevilla y toda
-              Andalucía. Diseñamos flujos que eliminan lo repetitivo para que tu equipo se centre
-              en crecer y vender mejor.
+              Orquestamos y automatizamos procesos empresariales críticos con <strong>n8n</strong>,{' '}
+              <strong>Python</strong> y <strong>IA</strong>. Eliminamos tareas repetitivas e
+              integramos sistemas para que tus equipos se concentren en decisiones estratégicas.
             </p>
           </Reveal>
 
@@ -74,8 +73,8 @@ export default function HomePage() {
       <section className="section tight">
         <div className="shell">
           <Reveal className="section-head">
-            <span className="eyebrow cool">Qué hacemos</span>
-            <h2>Cinco disciplinas, un solo interlocutor</h2>
+            <span className="eyebrow cool">Especialidades</span>
+            <h2>Desarrollo, IA y Automatización</h2>
             <p>
               Trabajamos en lo que de verdad mueve la aguja de tu negocio. Elige un servicio o
               combínalos: funcionamos como tu equipo digital completo.
