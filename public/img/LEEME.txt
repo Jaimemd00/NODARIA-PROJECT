@@ -1,0 +1,1 @@
+Ejecuta 'npm run imagenes' para rellenar esta carpeta.

@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.env*.local
+.DS_Store
+.vercel
+
+# Las imágenes de public/img SÍ deben commitearse (npm run imagenes las genera)
+.env
+.env.local
