@@ -45,8 +45,9 @@ export default function ServiciosPage() {
             <span className="eyebrow">Catálogo</span>
             <h2>Lo que hacemos, sin relleno</h2>
             <p>
-              Cada servicio funciona por separado, pero rinde mucho más combinado. Te decimos qué
-              necesitas de verdad y qué puedes esperar.
+              Cada servicio funciona por separado, pero rinde mucho más combinado. Te ayudamos a
+              elegir entre diseño web, SEO, automatización y desarrollo para conseguir mejores
+              resultados en tu negocio, desde Écija hasta toda España.
             </p>
           </Reveal>
 

@@ -38,9 +38,9 @@ export default function QuienesSomosPage() {
 
             <Reveal delay={140}>
               <p className="lead">
-                En cualquier caso, somos el tipo de personas con las que te gusta trabajar. Un poco
-                geeks, diferentes pero compenetrados, con hambre de gol y unidos por una pasión:{' '}
-                <strong>crear soluciones digitales únicas</strong>.
+                Somos un equipo de diseño web, desarrollo y automatización en Écija, Sevilla. Creamos
+                soluciones digitales reales para negocios que quieren vender más, trabajar mejor y
+                ganar tiempo con tecnología sencilla y efectiva.
               </p>
             </Reveal>
           </div>

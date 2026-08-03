@@ -50,8 +50,9 @@ export default function HomePage() {
             </h2>
             <p>
               Orquestamos tus herramientas digitales con <strong>n8n</strong> y{' '}
-              <strong>Zapier</strong>. Diseñamos flujos que eliminan lo repetitivo para que tu equipo
-              se centre en lo que importa:&nbsp;<strong>crecer</strong>.
+              <strong>Zapier</strong> para automatizar procesos en empresas de Sevilla y toda
+              Andalucía. Diseñamos flujos que eliminan lo repetitivo para que tu equipo se centre
+              en crecer y vender mejor.
             </p>
           </Reveal>
 
