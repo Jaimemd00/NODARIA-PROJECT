@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { SITE_URL } from '@/lib/seo';
 
 export const alt = 'Nodaria — Diseño web y automatización con IA';
 export const size = { width: 1200, height: 630 };
@@ -9,6 +10,8 @@ export const contentType = 'image/png';
  * Se genera en el servidor, así que no hay que mantener un PNG a mano.
  */
 export default async function OgImage() {
+  const url = SITE_URL;
+
   return new ImageResponse(
     (
       <div
