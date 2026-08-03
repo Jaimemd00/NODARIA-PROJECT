@@ -4,7 +4,6 @@ import { nav, services, site, socials } from '@/lib/site';
 import { SocialIcon } from './Icons';
 
 export default function Footer() {
-  // Force cache bust and rebuild
   return (
     <footer className="footer">
       <Waves id="f" flip />
