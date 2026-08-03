@@ -7,18 +7,34 @@ import Reveal from '@/components/Reveal';
 import FxButton from '@/components/FxButton';
 import ContactForm from '@/components/ContactForm';
 import { ServiceIcon } from '@/components/Icons';
+import Faq from '@/components/Faq';
+import JsonLd from '@/components/JsonLd';
 import { benefits, services } from '@/lib/site';
+import {
+  faqsHome,
+  jsonLdFaq,
+  jsonLdNegocio,
+  jsonLdServicios,
+  jsonLdWebSite,
+  metaDe,
+  paginas,
+} from '@/lib/seo';
 
-export const metadata = {
-  title: 'Nodaria — Vive la Metamorfosis Digital',
-  description:
-    'Conecta el diseño. Automatiza el futuro. Diseño y desarrollo web, posicionamiento, identidad y automatizaciones con n8n y Zapier.',
-};
+export const metadata = metaDe('home');
 
 export default function HomePage() {
   return (
     <>
-      <Hero eyebrow="Conecta el diseño. Automatiza el futuro" />
+      <JsonLd
+        data={[
+          jsonLdNegocio(),
+          jsonLdWebSite(),
+          jsonLdServicios(services),
+          jsonLdFaq(faqsHome),
+        ]}
+      />
+
+      <Hero title={paginas.home.h1} eyebrow="Conecta el diseño. Automatiza el futuro" />
 
       <Waves id="h" />
 
@@ -91,6 +107,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Faq items={faqsHome} title="Lo que suelen preguntarnos" />
 
       <section className="section tight">
         <div className="shell">

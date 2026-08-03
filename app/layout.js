@@ -1,23 +1,52 @@
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import { SITE_URL, negocio, paginas } from '@/lib/seo';
 
 export const metadata = {
-  metadataBase: new URL('https://nodaria.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Nodaria — Vive la Metamorfosis Digital',
-    template: '%s | Nodaria',
+    default: paginas.home.title,
+    // Las páginas internas heredan " | Nodaria" automáticamente
+    template: '%s',
   },
-  description:
-    'Agencia digital: diseño y desarrollo web, posicionamiento, redes sociales y automatizaciones con n8n e IA.',
+  description: paginas.home.description,
+  applicationName: negocio.nombre,
+  authors: [{ name: negocio.nombre, url: SITE_URL }],
+  creator: negocio.nombre,
+  publisher: negocio.nombre,
+  alternates: { canonical: SITE_URL },
+  category: 'technology',
   openGraph: {
-    title: 'Nodaria — Vive la Metamorfosis Digital',
-    description:
-      'Conectamos diseño, desarrollo y automatización para que tu negocio crezca sin fricciones.',
     type: 'website',
     locale: 'es_ES',
+    url: SITE_URL,
+    siteName: negocio.nombre,
+    title: paginas.home.title,
+    description: paginas.home.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: paginas.home.title,
+    description: paginas.home.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  // Pega aquí el código que te da Google Search Console al verificar el dominio
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
   },
   icons: { icon: '/logo.png', apple: '/logo.png' },
+  formatDetection: { telephone: false },
 };
 
 export const viewport = {

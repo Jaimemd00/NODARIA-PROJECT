@@ -5,18 +5,23 @@ import Reveal from '@/components/Reveal';
 import FxButton from '@/components/FxButton';
 import ContactForm from '@/components/ContactForm';
 import SmartImage from '@/components/SmartImage';
+import JsonLd from '@/components/JsonLd';
 import { media, team, values } from '@/lib/site';
+import { jsonLdBreadcrumb, metaDe, paginas } from '@/lib/seo';
 
-export const metadata = {
-  title: '¿Quiénes somos?',
-  description:
-    'Un equipo un poco geek, diferente pero compenetrado, unido por una pasión: crear soluciones digitales únicas.',
-};
+export const metadata = metaDe('quienesSomos');
 
 export default function QuienesSomosPage() {
   return (
     <>
-      <Hero eyebrow="Conoce nuestro equipo" ctaSecondary={false} />
+      <JsonLd
+        data={jsonLdBreadcrumb([
+          { name: 'Inicio', path: '/' },
+          { name: '¿Quiénes somos?', path: '/quienes-somos' },
+        ])}
+      />
+
+      <Hero title={paginas.quienesSomos.h1} eyebrow="Conoce nuestro equipo" ctaSecondary={false} />
 
       <Waves id="q" />
 

@@ -10,7 +10,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const pagina = paginas[params.slug];
   if (!pagina) return {};
-  return { title: pagina.title, description: pagina.intro, robots: { index: false } };
+  // noindex: las legales no aportan tráfico y diluyen el presupuesto de rastreo
+  return {
+    title: pagina.title,
+    description: pagina.intro,
+    robots: { index: false, follow: true },
+  };
 }
 
 export default function LegalPage({ params }) {

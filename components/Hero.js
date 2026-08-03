@@ -1,6 +1,10 @@
 import FxButton from './FxButton';
 import { site } from '@/lib/site';
 
+/**
+ * `title` es el H1 de la página y debe ser ÚNICO en cada una: es una de las
+ * señales que más peso tiene para que Google entienda de qué trata cada URL.
+ */
 export default function Hero({
   eyebrow,
   title = site.claim,

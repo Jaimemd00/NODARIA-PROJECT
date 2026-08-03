@@ -3,18 +3,26 @@ import Waves from '@/components/Waves';
 import Reveal from '@/components/Reveal';
 import ContactForm from '@/components/ContactForm';
 import SmartImage from '@/components/SmartImage';
+import JsonLd from '@/components/JsonLd';
 import { media, site } from '@/lib/site';
+import { jsonLdBreadcrumb, jsonLdNegocio, metaDe, paginas } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Contacto',
-  description:
-    'Hablemos de tu proyecto. Estamos en Écija (Sevilla) y trabajamos con clientes de toda España.',
-};
+export const metadata = metaDe('contacto');
 
 export default function ContactoPage() {
   return (
     <>
-      <Hero eyebrow="Forma parte de nosotros" cta={false} scroll={false} />
+      <JsonLd
+        data={[
+          jsonLdNegocio(),
+          jsonLdBreadcrumb([
+            { name: 'Inicio', path: '/' },
+            { name: 'Contacto', path: '/contacto' },
+          ]),
+        ]}
+      />
+
+      <Hero title={paginas.contacto.h1} eyebrow="Forma parte de nosotros" cta={false} scroll={false} />
 
       <Waves id="c" />
 

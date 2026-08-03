@@ -5,18 +5,35 @@ import Reveal from '@/components/Reveal';
 import FxButton from '@/components/FxButton';
 import SmartImage from '@/components/SmartImage';
 import FlowDiagram from '@/components/FlowDiagram';
+import Faq from '@/components/Faq';
+import JsonLd from '@/components/JsonLd';
 import { services } from '@/lib/site';
+import {
+  faqsServicios,
+  jsonLdBreadcrumb,
+  jsonLdFaq,
+  jsonLdServicios,
+  metaDe,
+  paginas,
+} from '@/lib/seo';
 
-export const metadata = {
-  title: 'Servicios',
-  description:
-    'Diseño y desarrollo web, automatizaciones con n8n y Zapier, posicionamiento y diseño gráfico.',
-};
+export const metadata = metaDe('servicios');
 
 export default function ServiciosPage() {
   return (
     <>
-      <Hero eyebrow="Servicios" ctaSecondary={false} />
+      <JsonLd
+        data={[
+          jsonLdServicios(services),
+          jsonLdFaq(faqsServicios),
+          jsonLdBreadcrumb([
+            { name: 'Inicio', path: '/' },
+            { name: 'Servicios', path: '/servicios' },
+          ]),
+        ]}
+      />
+
+      <Hero title={paginas.servicios.h1} eyebrow="Servicios" ctaSecondary={false} />
 
       <Waves id="s" />
 
@@ -66,6 +83,8 @@ export default function ServiciosPage() {
           </div>
         </div>
       </section>
+
+      <Faq items={faqsServicios} title="Preguntas sobre nuestros servicios" />
 
       <section className="section tight">
         <div className="shell">

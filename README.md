@@ -151,7 +151,62 @@ Automatizaciones no lleva foto: usa el diagrama animado de `components/FlowDiagr
 
 ---
 
-## 7. Lo que falta para publicar
+## 7. SEO
+
+Todo el SEO on-page se controla desde **`lib/seo.js`**: títulos, descripciones, palabras clave,
+datos estructurados y preguntas frecuentes. Cambiar ahí cambia toda la web.
+
+### Qué está implementado
+
+| Elemento | Estado | Dónde |
+| --- | --- | --- |
+| Title y description únicos por página | ✅ 45-55 y 136-153 caracteres | `lib/seo.js` → `paginas` |
+| H1 único por página | ✅ | `lib/seo.js` → `h1`, se pasa al `<Hero>` |
+| Canonical en todas las páginas | ✅ | `metaDe()` |
+| `robots.txt` | ✅ bloquea `/api/` y `/legal/` | `app/robots.js` |
+| `sitemap.xml` con prioridades | ✅ solo páginas indexables | `app/sitemap.js` |
+| Datos estructurados JSON-LD | ✅ ver abajo | `lib/seo.js` + `components/JsonLd.js` |
+| Imagen Open Graph | ✅ generada al vuelo, 1200×630 | `app/opengraph-image.js` |
+| FAQ indexable | ✅ `<details>` nativo, se indexa plegado | `components/Faq.js` |
+| Manifiesto PWA | ✅ | `app/manifest.js` |
+| Legales con `noindex` | ✅ | `app/legal/[slug]/page.js` |
+
+### Datos estructurados
+
+- **ProfessionalService** con dirección, coordenadas y zonas de servicio → base del SEO local.
+- **WebSite** y **BreadcrumbList** → Google muestra migas en vez de la URL cruda.
+- **ItemList + Service** → entiende qué vendéis.
+- **FAQPage** → las preguntas pueden salir desplegables en el propio resultado.
+
+Compruébalos en [search.google.com/test/rich-results](https://search.google.com/test/rich-results).
+
+### Pasos para posicionar (en orden de impacto)
+
+1. **Dominio propio.** Pon `NEXT_PUBLIC_SITE_URL=https://tudominio.com` en Vercel. Sin esto los
+   canonicals y el sitemap apuntan a un dominio que no es el vuestro.
+2. **Google Search Console.** Verifica el dominio, guarda el código en `GOOGLE_SITE_VERIFICATION`
+   y envía `https://tudominio.com/sitemap.xml`.
+3. **Perfil de Google Business.** Para búsquedas tipo "diseño web Écija" pesa más que la propia
+   web. Rellénalo con la misma dirección, teléfono y nombre EXACTOS que en `lib/seo.js`
+   (la coherencia NAP es un factor de SEO local).
+4. **Teléfono.** Añádelo en `lib/seo.js` → `negocio.telefono`. Aparece en los datos estructurados
+   y mejora la conversión.
+5. **Coordenadas exactas** del local en `negocio.lat` / `negocio.lng`.
+6. **Casos de éxito.** Es el contenido que más convierte en una web de agencia, y genera páginas
+   nuevas que posicionan por el sector de cada cliente.
+7. **Blog.** Una entrada al mes respondiendo dudas reales ("cómo automatizar facturas con n8n")
+   capta búsquedas de cola larga, que es donde una agencia pequeña puede competir.
+
+### Palabras clave objetivo
+
+Definidas por página en `lib/seo.js`. El enfoque es **local + servicio**, que es donde hay opción
+real de posicionar, en vez de pelear por términos genéricos como "diseño web":
+
+- `diseño web Écija`, `agencia digital Sevilla`
+- `automatización n8n`, `automatizar tareas Zapier`
+- `desarrollo web a medida Sevilla`, `posicionamiento SEO Andalucía`
+
+## 8. Lo que falta para publicar
 
 ### Imprescindible
 
@@ -181,7 +236,7 @@ Automatizaciones no lleva foto: usa el diagrama animado de `components/FlowDiagr
 
 ---
 
-## 8. Accesibilidad y rendimiento
+## 9. Accesibilidad y rendimiento
 
 Ya contemplado: foco visible, `aria-live` en el formulario, `aria-expanded` en el menú móvil,
 `prefers-reduced-motion` respetado, contraste alto sobre azul noche y todas las imágenes con `alt`.

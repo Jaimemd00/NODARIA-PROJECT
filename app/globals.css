@@ -2042,3 +2042,70 @@ button {
   position: relative;
   z-index: 1;
 }
+
+/* ============================================================
+   FAQ  (preguntas frecuentes)
+   ============================================================ */
+
+.faq {
+  display: grid;
+  gap: 12px;
+  max-width: 880px;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+
+.faq-item:hover,
+.faq-item[open] {
+  border-color: rgba(255, 197, 61, 0.34);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: clamp(17px, 2.2vw, 23px) clamp(18px, 2.4vw, 26px);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--display);
+  font-size: clamp(15.5px, 0.6vw + 14px, 19px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item[open] summary svg {
+  transform: rotate(45deg);
+}
+
+.faq-body {
+  padding: 0 clamp(18px, 2.4vw, 26px) clamp(20px, 2.4vw, 26px);
+}
+
+.faq-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14.5px, 0.4vw + 13.5px, 16px);
+  max-width: 68ch;
+}
